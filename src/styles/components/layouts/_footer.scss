@@ -1,0 +1,79 @@
+@use "../../base/mixins" as *;
+@use "../../base/variables" as *;
+
+.footer {
+  &__wrapper {
+  }
+
+  &__nav {
+    padding: 70px 0;
+    @include flexLayout(flex, flex-start, flex-start, 150px, row nowrap);
+    &-row {
+      @include flexLayout(flex, flex-start, flex-start, 16px, column nowrap);
+    }
+    &-title {
+      color: #000;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 19px;
+    }
+    &-text {
+      cursor: pointer;
+      @include headingFonts(#8b8e99, 12px, 400, 16px, none);
+    }
+
+    &-download {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+
+      &-app {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+
+        &-text {
+          font-family: "Inter";
+          font-size: 0.8rem;
+          line-height: 1.2em;
+        }
+      }
+    }
+
+    &-networks {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    align-items: center;
+
+    padding: 15px 0;
+    border-top: 1px solid #b3b5bc;
+
+    &-nav {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+
+      &-text {
+        color: #000;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 18px;
+        white-space: nowrap;
+      }
+    }
+
+    &-year {
+      color: #8b8e99;
+      font-size: 11px;
+      font-weight: 400;
+      line-height: 14px;
+      margin-left: auto;
+    }
+  }
+}
