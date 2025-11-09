@@ -13,9 +13,11 @@ import CategoryImage1 from "../assets/images/png/category-img1.png";
 import CategoryImage2 from "../assets/images/png/category-img2.png";
 import CategoryImage3 from "../assets/images/png/category-img3.png";
 import CategoryImage4 from "../assets/images/png/category-img4.png";
-import UzFlagIcon from "../assets/images/png/uz-flag.jpg"
+import UzFlagIcon from "../assets/images/png/uz-flag.jpg";
+import useAppContext from "../hooks/useAppContext";
 
 const Header = () => {
+  const { cart } = useAppContext();
   return (
     <header className="header">
       <div className="top-header">
@@ -84,7 +86,8 @@ const Header = () => {
             <div className="middle-header__action-btn">
               <AiFillShopping size={22} />
               <p className="middle-header__action-btn-label">
-                Savat <span className="middle-header__cart-count">1</span>
+                Savat{" "}
+                <span className="middle-header__cart-count">{cart.length}</span>
               </p>
             </div>
           </div>
