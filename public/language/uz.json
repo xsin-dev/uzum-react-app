@@ -1,0 +1,26 @@
+{
+  "header": {
+    "location": "Toshkent",
+    "seles": "Sotuv bo'limi",
+    "point": "Topshirish punktini ochish",
+    "ans": "Savol-javob",
+    "order": "Buyurtmarim",
+    "punkt": "Topshirish punktlari",
+    "catalog": "Katalog",
+    "search": "Mahsulot va turkumlarni izlash",
+    "auth": "Kirish",
+    "sorted": "saralangan",
+    "cart": "Savat",
+    "weekly": "Hafta tovarlari",
+    "winter": "Qishki tovarlar",
+    "hobby": "Xobbi va ijod",
+    "telefon": "Smartfonlar",
+    "turizm": "Turizm, baliq ovi va ovchilik",
+    "elektronika": "Elektronika",
+    "texnika": "Maishiy texnika",
+    "clother": "Kiyim",
+    "shoes": "Poyabzallar",
+    "aksessuarlar": "Aksessuarlar",
+    "more": "Yana"
+  }
+}

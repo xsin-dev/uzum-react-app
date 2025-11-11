@@ -1,0 +1,26 @@
+{
+  "header": {
+    "location": "Tashkent",
+    "seles": "Sales department",
+    "point": "Open a drop-off point",
+    "ans": "FAQ",
+    "order": "My orders",
+    "punkt": "Drop-off points",
+    "catalog": "Catalog",
+    "search": "Search for products and categories",
+    "auth": "Login",
+    "sorted": "Filtered",
+    "cart": "Cart",
+    "weekly": "Weekly products",
+    "winter": "Winter products",
+    "hobby": "Hobbies and creativity",
+    "telefon": "Smartphones",
+    "turizm": "Tourism, fishing and hunting",
+    "elektronika": "Electronics",
+    "texnika": "Home appliances",
+    "clother": "Clothing",
+    "shoes": "Shoes",
+    "aksessuarlar": "Accessories",
+    "more": "More"
+  }
+}

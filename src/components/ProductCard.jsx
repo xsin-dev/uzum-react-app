@@ -2,6 +2,7 @@ import { BsCash, BsHeartFill } from "react-icons/bs";
 import { FaStar } from "react-icons/fa6";
 
 import useAppContext from "../hooks/useAppContext";
+import { AiFillShopping } from "react-icons/ai";
 
 const ProductCard = ({ product }) => {
   const { setCart, cart } = useAppContext();
@@ -73,12 +74,18 @@ const ProductCard = ({ product }) => {
             onClick={handleAddToCart}
             className="products__card-to-cart-btn"
           >
+            <AiFillShopping size={22} />
             Savatga
           </button>
         )}
         {inCart && (
           <div className="in-cart">
-            <button className="products__card-counter-btn" onClick={handleDecrement}>-</button>
+            <button
+              className="products__card-counter-btn"
+              onClick={handleDecrement}
+            >
+              -
+            </button>
             <p className="products__card-count">{inCart.count}</p>
             <button
               className="products__card-counter-btn"

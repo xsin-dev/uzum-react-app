@@ -15,9 +15,18 @@ import CategoryImage3 from "../assets/images/png/category-img3.png";
 import CategoryImage4 from "../assets/images/png/category-img4.png";
 import UzFlagIcon from "../assets/images/png/uz-flag.jpg";
 import useAppContext from "../hooks/useAppContext";
+import { useTranslation } from "react-i18next";
 
 const Header = () => {
+  const { t, i18n } = useTranslation();
+
   const { cart } = useAppContext();
+
+  function handleSelect(e) {
+    const lang = e.target.value;
+    i18n.changeLanguage(lang);
+    localStorage.setItem("lang", lang);
+  }
   return (
     <header className="header">
       <div className="top-header">
@@ -26,29 +35,35 @@ const Header = () => {
             <div className="top-header__left">
               <div className="top-header__location">
                 <FaLocationDot size={14} />
-                <p className="top-header__location-text">Toshkent</p>
+                <p className="top-header__location-text">
+                  {t("header.location")}
+                </p>
                 <FaAngleDown size={14} />
               </div>
               <p className="top-header__delevery-point top-header__text">
-                Topshirish punktlari
+                {t("header.punkt")}
               </p>
             </div>
             <div className="top-header__right">
               <p className="top-header__seller top-header__text">
-                Sotuvchi bo'lish
+                {t("header.seles")}
               </p>
               <p className="top-header__delevery top-header__text">
-                Topshirish punktini ochish
+                {t("header.point")}
               </p>
               <p className="top-header__ans-ques top-header__text">
-                Savol-javob
+                {t("header.ans")}
               </p>
               <p className="top-header__my-order top-header__text">
-                Buyurtmarim
+                {t("header.order")}
               </p>
               <div className="top-header__lang">
                 <img src={UzFlagIcon} alt="uz flag" />
-                <p className="top-header__lang-text">O'zbekcha</p>
+                <select value={i18n.language} onChange={handleSelect}>
+                  <option value="uz">uz</option>
+                  <option value="ru">ru</option>
+                  <option value="en">en</option>
+                </select>
               </div>
             </div>
           </div>
@@ -63,13 +78,15 @@ const Header = () => {
             </Link>
             <div className="middle-header__catalog">
               <IoAlbumsOutline size={16} />
-              <p className="middle-header__catalog-text">Katalog</p>
+              <p className="middle-header__catalog-text">
+                {t("header.catalog")}
+              </p>
             </div>
             <form className="middle-header__form">
               <input
                 className="middle-header__form-input"
                 type="text"
-                placeholder="Mahsulot va turkumlarni izlash"
+                placeholder={t("header.search")}
               />
               <button className="middle-header__form-btn">
                 <AiOutlineSearch size={20} />
@@ -77,19 +94,23 @@ const Header = () => {
             </form>
             <div className="middle-header__action-btn">
               <AiOutlineUser size={22} />
-              <p className="middle-header__action-btn-label">Kirish</p>
+              <p className="middle-header__action-btn-label">
+                {t("header.auth")}
+              </p>
             </div>
             <div className="middle-header__action-btn">
               <AiOutlineHeart size={22} />
-              <p className="middle-header__action-btn-label">saralangan</p>
-            </div>
-            <div className="middle-header__action-btn">
-              <AiFillShopping size={22} />
               <p className="middle-header__action-btn-label">
-                Savat{" "}
-                <span className="middle-header__cart-count">{cart.length}</span>
+                {t("header.sorted")}
               </p>
             </div>
+            <NavLink to="/cart" className="middle-header__action-btn">
+              <AiFillShopping size={22} />
+              <p className="middle-header__action-btn-label">
+                {t("header.cart")}{" "}
+                <span className="middle-header__cart-count">{cart.length}</span>
+              </p>
+            </NavLink>
           </div>
         </div>
       </div>
@@ -102,7 +123,7 @@ const Header = () => {
             >
               <img src={CategoryImage1} alt="Hafta tovarlari" />
               <p className="bottom-header__promo-category-text">
-                Hafta tovarlari
+                {t("header.weekly")}
               </p>
             </Link>
 
@@ -112,7 +133,7 @@ const Header = () => {
             >
               <img src={CategoryImage2} alt="Qishki kolleksiya" />
               <p className="bottom-header__promo-category-text">
-                Qishki kolleksiya
+                {t("header.winter")}
               </p>
             </Link>
 
@@ -122,41 +143,43 @@ const Header = () => {
             >
               <img src={CategoryImage3} alt="Xobbi va ijod" />
               <p className="bottom-header__promo-category-text">
-                Xobbi va ijod
+                {t("header.hobby")}
               </p>
             </Link>
 
             <Link to="/smartphones" className="bottom-header__promo-category">
               <img src={CategoryImage4} alt="Smartfonlar" />
-              <p className="bottom-header__promo-category-text">Smartfonlar</p>
+              <p className="bottom-header__promo-category-text">
+                {t("header.telefon")}
+              </p>
             </Link>
 
             <NavLink to="/tourism-hunting" className="bottom-header__category">
-              Turizm, baliq ovi va ovchilik
+              {t("header.turizm")}
             </NavLink>
 
             <NavLink to="/electronics" className="bottom-header__category">
-              Elektronika
+              {t("header.elektronika")}
             </NavLink>
 
             <NavLink to="/home-appliances" className="bottom-header__category">
-              Maishiy texnika
+              {t("header.texnika")}
             </NavLink>
 
             <NavLink to="/clothing" className="bottom-header__category">
-              Kiyim
+              {t("header.clother")}
             </NavLink>
 
             <NavLink to="/shoes" className="bottom-header__category">
-              Poyabzallar
+              {t("header.shoes")}
             </NavLink>
 
             <NavLink to="/accessories" className="bottom-header__category">
-              Aksessuarlar
+              {t("header.aksessuarlar")}
             </NavLink>
 
             <NavLink to="/more" className="bottom-header__category-more">
-              Yana <FaAngleDown />
+              {t("header.more")} <FaAngleDown />
             </NavLink>
           </nav>
         </div>

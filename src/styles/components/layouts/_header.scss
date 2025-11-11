@@ -36,28 +36,28 @@
   &__seller {
     color: #7f4dff;
     border-right: 1px solid #dee0e5;
-    transition: color .3s ease;
+    transition: color 0.3s ease;
 
-    &:hover{
-        color: #5817fd;
+    &:hover {
+      color: #5817fd;
     }
   }
   &__delevery {
     color: #7f4dff;
     padding-left: 20px;
-    transition: color .3s ease;
+    transition: color 0.3s ease;
 
-    &:hover{
-        color: #5817fd;
+    &:hover {
+      color: #5817fd;
     }
   }
   &__ans-ques,
-  &__my-order{
+  &__my-order {
     color: #858585;
-    transition: color .3s ease;
+    transition: color 0.3s ease;
 
-    &:hover{
-        color: #000;
+    &:hover {
+      color: #000;
     }
   }
 
@@ -148,13 +148,15 @@
     align-items: center;
     gap: 8px;
 
+    color: #000000;
+
     padding: 10px;
     cursor: pointer;
     border-radius: 4px;
-    transition: all .2s ease;
+    transition: all 0.2s ease;
 
-    &:hover{
-        background-color: #edeff5;
+    &:hover {
+      background-color: #edeff5;
     }
 
     &-label {
@@ -162,10 +164,13 @@
     }
   }
   &__cart-count {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
     background-color: #7f4dff;
     border-radius: 2px;
-    padding: 3px 5px;
-
     color: #ffffff;
   }
 }

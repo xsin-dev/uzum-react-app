@@ -1,21 +1,19 @@
-import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
-import { Context } from "./context";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
-
-
+import CartPage from "./pages/CartPage";
+import { ContextProvider } from "./context";
 
 const App = () => {
-  const [cart, setCart] = useState([]);
   return (
-    <Context.Provider value={{ cart, setCart }}>
+    <ContextProvider>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route path="/" element={<Home />} />
+          <Route index element={<Home />} />
+          <Route path="/cart" element={<CartPage />} />
         </Route>
       </Routes>
-    </Context.Provider>
+    </ContextProvider>
   );
 };
 
