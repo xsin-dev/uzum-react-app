@@ -13,7 +13,7 @@ function reducer(state, action) {
     switch (type) {
         case "DATA":
             return { ...state, data: payload };
-        case "LODING":
+        case "LOADING":
             return { ...state, isLoading: !state.isLoading };
         case "ERROR":
             return { ...state, error: payload };
@@ -27,21 +27,47 @@ const useFetch = (url) => {
     const [state, dispatch] = useReducer(reducer, initialState)
 
     useEffect(() => {
-        dispatch({
-            type: "LOADING"
-        })
+        let isMounted = true;
 
-        axios.get(url)
-            .then(res => dispatch({ type: "DATA", payload: res.data.products }))
-            .catch(err => dispatch({ type: "ERROR", payload: err.message || "xatolik" }))
-            .finally(() => {
-                dispatch({
-                    type: "LOADING"
-                })
-            })
+        const fetchData = async () => {
+            dispatch({ type: "LOADING" })
+
+            try {
+                const res = await axios.get(url)
+
+                const data = res.data.products ? res.data.products : res.data
+
+                if (isMounted) {
+                    dispatch({ type: "DATA", payload: data })
+                }
+            } catch (error) {
+                if (isMounted) {
+                    dispatch({ type: "ERROR", payload: error.message || "Xatilik yuz berdi" })
+                }
+            } finally {
+                if (isMounted) {
+                    dispatch({ type: "LOADING", payload: false })
+                }
+            }
+        }
+
+        fetchData()
+
+        return () => {
+            isMounted = false
+        }
+
+        // axios.get(url)
+        //     .then(res => dispatch({ type: "DATA", payload: res.data.products ? res.data.products : res.data }))
+        //     .catch(err => dispatch({ type: "ERROR", payload: err.message || "xatolik" }))
+        //     .finally(() => {
+        //         dispatch({
+        //             type: "LOADING"
+        //         })
+        //     })
     }, [url])
 
-    return{...state}
+    return { ...state }
 }
 
 export default useFetch
